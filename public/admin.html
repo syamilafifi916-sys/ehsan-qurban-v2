@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ms">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin | Ehsan Qurban v2</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+<main class="wrap">
+  <section class="hero"><p class="eyebrow">Admin</p><h1>Ehsan Qurban</h1><p>Login secure menggunakan API. Password tidak disimpan dalam HTML.</p></section>
+  <section class="card">
+    <h2>Log Masuk Admin</h2>
+    <form id="loginForm">
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="password" type="password" placeholder="Password" required>
+      <button type="submit">Log Masuk</button>
+    </form>
+  </section>
+  <section id="adminPanel" class="card hidden">
+    <h2>Dashboard Awal</h2>
+    <p id="adminInfo"></p>
+    <p>Modul seterusnya: senarai permohonan, approve peserta, tambah admin dan laporan.</p>
+  </section>
+</main>
+<script>
+document.getElementById('loginForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const body = Object.fromEntries(new FormData(e.target).entries());
+  const res = await fetch('/api/login', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body) });
+  const data = await res.json();
+  if(!res.ok) return alert(data.error || 'Login gagal');
+  localStorage.setItem('eq_token', data.token);
+  document.getElementById('adminPanel').classList.remove('hidden');
+  document.getElementById('adminInfo').textContent = `Login sebagai ${data.admin.name} (${data.admin.role})`;
+});
+</script>
+</body></html>

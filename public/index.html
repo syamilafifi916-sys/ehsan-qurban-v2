@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ehsan Qurban v2</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Ehsan Qurban</p>
+        <h1>Qurban 2027</h1>
+        <p>Surau Dakwatul Islamiah Kebun Baru</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>Pilih Kumpulan Qurban</h2>
+        <span id="slotSummary">Memuatkan...</span>
+      </div>
+      <div id="cowGrid" class="cow-grid"></div>
+      <div id="fullNotice" class="notice hidden">
+        Semua kumpulan telah penuh. Sila hubungi pihak pengurusan untuk membuka kumpulan baharu.
+      </div>
+    </section>
+
+    <section id="registerPanel" class="card hidden">
+      <h2>Daftar Penyertaan</h2>
+      <p id="selectedCow" class="selected"></p>
+      <form id="registerForm">
+        <input name="name" placeholder="Nama penuh" required />
+        <input name="phone" placeholder="No. telefon" required />
+        <input name="email" placeholder="Email (optional)" />
+        <select name="payment_plan">
+          <option value="full">Bayaran penuh</option>
+          <option value="installment">Ansuran</option>
+        </select>
+        <input name="installment_months" type="number" min="1" max="12" placeholder="Bilangan bulan ansuran (optional)" />
+        <button type="submit">Hantar Pendaftaran</button>
+      </form>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

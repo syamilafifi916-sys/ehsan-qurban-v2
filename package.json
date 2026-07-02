@@ -1,0 +1,18 @@
+{
+  "name": "ehsan-qurban-v2",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "latest",
+    "bcryptjs": "latest",
+    "jsonwebtoken": "latest"
+  },
+  "devDependencies": {
+    "vercel": "latest"
+  }
+}
